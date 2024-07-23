@@ -1,3 +1,7 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+
 /* createElement method returns a js object which contains children, attributes in props key and element name in type key */
 
 // const heading = React.createElement('h2', {id: "h2-element"}, 'Hello World from React Js!');
