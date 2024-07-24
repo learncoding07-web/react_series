@@ -1,29 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+// const jsxHeading = <h1>Hello, This is JSX Heading</h1>
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(jsxHeading);
 
-/* createElement method returns a js object which contains children, attributes in props key and element name in type key */
+const Title = () => {
+    return (
+        <div>This is Title Component</div>
+    )
+}
 
-// const heading = React.createElement('h2', {id: "h2-element"}, 'Hello World from React Js!');
+const HeadingComponent = () => {
+    return (
+        <div>
+            <Title />
+            <h2>This is Heading Component</h2>
+        </div>
+    )
+}
 
-// console.log("heading===>", heading)
-
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-
-// root.render(heading);    // takes the js object and converts it in DOM node
-
-/* Exercise:- Create structure using React
-
-<div id="parent">
-    <div id="child">
-        <h2>I'm h1 Tag</h2>
-    </div>
-</div>
-
-*/
-
-const parent = React.createElement('div', {id: 'parent'}, [React.createElement('div', {id: 'child'},[ React.createElement('h1', {key: 'h1'}, "Hello, I'm h1 tag"), React.createElement('h2', {key: 'h2'}, "Hello, I'm h2 tag")]), React.createElement('div', {id: 'child2'},[ React.createElement('h1', {key: 'h1'}, "Hello, I'm h1 tag"), React.createElement('h2', {key: 'h2'}, "Hello, I'm h2 tag")])])
-console.log("===parent===", parent);
-const root = ReactDOM.createRoot(document.getElementById('root'));
-
-root.render(parent);
+const root = ReactDOM.createRoot(document.getElementById("root"))
+root.render(<HeadingComponent/>)
