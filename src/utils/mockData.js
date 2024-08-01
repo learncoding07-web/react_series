@@ -1,66 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import foodLogo from'./foodlogo.png';
-
-// const jsxHeading = <h1>Hello, This is JSX Heading</h1>
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(jsxHeading);
-
-
-/*
- - Header
-    - Logo
-    - Nav Items
- - Body
-    - Search
-    - Restaurant Container
-        - Restaurant Card
-            - Image
-            - Name of Restaurant, Star rating, Cuisine name, Delivery time
- - Footer
-    - Copyright
-    - Links
-    - Address
-    - Contact
-*/
-
-const Header = () => {
-    return (
-        <div className='header' >
-            <div className='logo-container'>
-                <img className='logo' src={foodLogo} />
-            </div>
-            <div className='nav-items'>
-                <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-    )
-}
-
-const RestaurantCard = ({resData}) => {
-    const {cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla} = resData?.info;
-    return (
-        <div className='res-card'>
-            <div className='res-image'>
-                <img alt='food' src={'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/'+cloudinaryImageId} />
-            </div>
-            <h3>{name}</h3>
-            <h4>{cuisines.join(', ')}</h4>
-            <h4>{avgRating} stars</h4>
-            <h4>{costForTwo}</h4>
-            <h4>{sla.deliveryTime} mins</h4>
-        </div>
-    )
-}
-
-
-
-const resData = [
+export const RES_DATA = [
     {
       "info": {
         "id": "881203",
@@ -75,7 +13,7 @@ const resData = [
           "Tibetan",
           "Desserts"
         ],
-        "avgRating": 4.6,
+        "avgRating": 3.2,
         "parentId": "61955",
         "avgRatingString": "4.6",
         "totalRatingsString": "100+",
@@ -1005,27 +943,4 @@ const resData = [
       },
       "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
     }
-  ]
-
-const Body = () => {
-    return (
-        <div className='body'>
-            <div className='search-box'>Search</div>
-            <div className='res-container'>
-                {resData.map((restro, index) => <RestaurantCard key={restro.id} resData={restro} />)}
-            </div>
-        </div>
-    )
-}
-
-const AppLayout = () => {
-    return (
-        <div className='app'>
-            <Header />
-            <Body />
-        </div>
-    )
-}
-
-const root = ReactDOM.createRoot(document.getElementById("root"))
-root.render(<AppLayout/>)
+]
